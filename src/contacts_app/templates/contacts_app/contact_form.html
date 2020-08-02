@@ -1,0 +1,29 @@
+{% extends 'contacts_app/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block caption %} Registeration {% endblock %}
+
+{% block content %}
+<form action="" method="POST"  autocomplete="off">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-6">{{form.fullname|as_crispy_field}}</div>
+        <div class="col-md-6">{{form.organization|as_crispy_field}}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">{{form.position|as_crispy_field}}</div>
+        <div class="col-md-6">{{form.mobile|as_crispy_field}}</div>
+    </div>    
+    {{form.address|as_crispy_field}}
+    <div class="row">
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fa fa-database"></i> Submit</button>
+        </div>
+        <div class="col-md-6">
+            <a href="{% url 'contacts_app:contact_list' %}" class="btn btn-secondary btn-block btn-lg"><i class="fa fa-list"></i> View Contact List</a>
+        </div>
+    </div>
+     
+</form>
+{% endblock %}
