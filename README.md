@@ -1,2 +1,2 @@
 # contacts_app
-Contact Management System
+This is a simple django app to help manage contacts
