@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/62260db3c0.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}"> -->
     <link rel="stylesheet" type="text/css" href="{% static '/css/register.css' %}">
 
 </head>
@@ -22,26 +22,26 @@
 
     	<form method='POST' action=''>
             {% csrf_token %}
-    	<div class="form-group input-group">
-    		<div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-user fa-lg"></i> </span>
-            </div>
-            <input name="username" class="form-control" placeholder="Username..." type="text">
-        </div> <!-- form-group// -->
-        <div class="form-group input-group">
-        	<div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-lock fa-lg"></i> </span>
-            </div>
-             <input name="password" class="form-control" placeholder="Password..." type="password">
-        </div> <!-- form-group// -->                                  
-        <div class="form-group">
-            <button type="submit" class="btn btn-info btn-block"> Login  </button>
-        </div> <!-- form-group// -->   
-        {% for message in messages %}
-            <span style="color:purple">{{message}}</span>
-        {% endfor %}   
-        <p class="text-center">Don't have an account? <a href="{% url 'contacts_app:register' %}">Sign Up</a> </p>                                                                 
-    </form>
+        	<div class="form-group input-group">
+        		<div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-user fa-lg"></i> </span>
+                </div>
+                <input name="username" class="form-control" placeholder="Username..." type="text">
+            </div> <!-- form-group// -->
+            <div class="form-group input-group">
+            	<div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock fa-lg"></i> </span>
+                </div>
+                 <input name="password" class="form-control" placeholder="Password..." type="password">
+            </div> <!-- form-group// -->                                  
+            <div class="form-group">
+                <button type="submit" class="btn btn-info btn-block"> Login  </button>
+            </div> <!-- form-group// -->   
+            {% for message in messages %}
+                <span style="color:purple">{{message}}</span>
+            {% endfor %}   
+            <p class="text-center">Don't have an account? <a href="{% url 'contacts_app:register' %}">Sign Up</a> </p>                                                                 
+        </form>
     </article>
     </div> <!-- card.// -->
 </div>
