@@ -1,19 +1,33 @@
 {% extends 'contacts_app/base.html' %}
 
 {% block content %}
+
 <table class="table table-borderless">
     <thead class="border-bottom font-weight-bold">
         <tr>
-            <td>Full Name</td>
-            <td>Organization</td>
-            <td>Position</td>
-            <td>Mobile No.</td>
-            <td>Address</td>
-            <td>
-                <a href="{% url 'contacts_app:contact_add' %}" class="btn btn-outline-success">
-                    <i class="fa fa-plus"></i> Add New
-                </a>
-            </td>
+            <div class="row">
+                <div class="col-md-2">
+                    <td>Full Name</td>
+                </div>
+                <div class="col-md-2">
+                    <td>Organization</td>
+                </div>
+                <div class="col-md-2">
+                    <td>Position</td>
+                </div>
+                <div class="col-md-2">
+                    <td>Mobile No.</td>
+                </div>
+                <div class="col-md-2">
+                    <td>Address</td>
+                </div>
+                <div class="col-md-2">
+                    <td>
+                        <a href="{% url 'contacts_app:contact_add' %}" class="btn btn-outline-success btn-sm pull-right"><i class="fa fa-plus"></i> Add New
+                        </a>
+                    </td>
+                </div>
+            </div>   
         </tr>
     </thead>
     <tbody>
@@ -28,13 +42,54 @@
                     <a href="{% url 'contacts_app:contact_update' contact.id %}" class="btn text-secondary d-inline ">
                         <i class="fa fa-edit fa-lg"></i>
                     </a>
-                    <form action="{% url 'contacts_app:contact_delete' contact.id %}" method="POST" class="d-inline mt-4">
-                        {% csrf_token %}
-                        <button><i class="fa fa-trash text-danger float-right"></i></button>
-                    </form>
+                    <a href="{% url 'contacts_app:contact_delete' contact.id %}" class="btn text-secondary d-inline"><i class="fa fa-trash fa-lg text-danger "></i></a>
                 </td>
             </tr>
         {% endfor %}
     </tbody>
 </table>   
+   
+
 {% endblock %}
+
+<!-- <div class="row font-weight-bold border-bottom mb-1">
+                <div class="col-md-2">
+                    Full Name
+                </div>
+                <div class="col-md-2">
+                    Organization
+                </div>
+                <div class="col-md-2">
+                    Position
+                </div>
+                <div class="col-md-2">
+                    Mobile No.
+                </div>
+                <div class="col-md-2">
+                    Address
+                </div>
+                <div class="col-md-2">
+                    
+                        <a href="{% url 'contacts_app:contact_add' %}" class="btn btn-outline-success btn-sm mb-1"><i class="fa fa-plus"></i> Add New
+                        </a>
+                    
+                </div>
+</div>   
+        
+    
+        {% for contact in contact_list %}
+            <div class=" row border-bottom">
+                <div class="col-md-2">{{contact.fullname}}</div>
+                <div class="col-md-2">{{contact.organization}}</div>
+                <div class="col-md-2">{{contact.position}}</div>
+                <div class="col-md-2">{{contact.mobile}}</div>
+                <div class="col-md-2">{{contact.address}}</div>
+                <div class="col-md-2">
+                    <a href="{% url 'contacts_app:contact_update' contact.id %}" class="btn text-secondary  ">
+                        <i class="fa fa-edit fa-lg"></i>
+                    </a>
+                    <a href="{% url 'contacts_app:contact_delete' contact.id %}" class="btn text-secondary "><i class="fa fa-trash fa-lg text-danger "></i>
+                    </a>
+                </div>
+            </div>
+        {% endfor %} -->

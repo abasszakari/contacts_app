@@ -9,16 +9,35 @@
 </head>
 <body>
     <div class="container">
-        <div class="col-md-10 offset-md-1 mt-5">
-            <div class="jumbotron">
-                <h1 class="display-4"> Contact {% block caption %} List {% endblock %}</h1>
-                <p class="lead font-italic">A smart way to store and access contacts everywhere in the world!</p>
-                <hr class="my-4">
-                {% block content %}
+        <div class="row">
+            <div class="col mt-5">
+                <div class="card card-body">
+                    <div class="row">
+                        
+                        <div class="col">
+                            <a href="{% url 'contacts_app:logout' %}" class="btn btn-outline-secondary btn-sm pull-right">Logout</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="display-4 font-weight-bold font-italic"> Contact {% block caption %} List {% endblock %}</h1>
+                        </div>
+                    </div>
+                    
+                    <p class="lead font-italic">A smart way to store and access contacts everywhere in the world!</p>
+                    <hr class="my-2">
 
-                {% endblock %}
+                    {% block content %}
+
+                    {% endblock %}
+                </div>
+               <!--  <div class="jumbotron"> -->
+                    
+                    
+                <!-- </div> -->
             </div>
         </div>
+       
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
