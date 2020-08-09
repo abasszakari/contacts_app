@@ -51,7 +51,9 @@ def logoutUser(request):
 @login_required(login_url='contacts_app:login')
 def contact_list(request):
     contact_list = Contact.objects.filter(user=request.user)
-    context = {"contact_list": contact_list}
+    my_filter = ContactFilter(request.GET, queryset=contact_list)
+    contact_list = my_filter.qs
+    context = {"contact_list": contact_list, 'my_filter':my_filter}
     return render(request, 'contacts_app/contact_list.html', context)
 
 @login_required(login_url='contacts_app:login')

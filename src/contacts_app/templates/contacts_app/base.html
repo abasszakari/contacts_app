@@ -12,8 +12,7 @@
         <div class="row">
             <div class="col mt-5">
                 <div class="card card-body">
-                    <div class="row">
-                        
+                    <div class="row">                        
                         <div class="col">
                             <a href="{% url 'contacts_app:logout' %}" class="btn btn-outline-secondary btn-sm pull-right">Logout</a>
                         </div>
@@ -26,6 +25,19 @@
                     
                     <p class="lead font-italic">A smart way to store and access contacts everywhere in the world!</p>
                     <hr class="my-2">
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-body">
+                                <form method='get'> 
+                                    {% csrf_token %}
+                                    {{my_filter.form}}
+                                    <button class="btn btn-info" type="submit">Search</button>
+                                
+                                </form>
+                            </div>
+                        </div>  
+                    </div><br>
 
                     {% block content %}
 
