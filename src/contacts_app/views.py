@@ -35,7 +35,6 @@ def loginPage(request):
             user = authenticate(request, username=username, password=password)
 
             if user is not None:
-                print(user.id)
                 login(request, user)
                 return redirect('contacts_app:contact_list')
             else:
